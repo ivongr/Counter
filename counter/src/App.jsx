@@ -1,21 +1,17 @@
-import { useState } from 'react'
-import './App.css'
-import counter from "./counter"
+import './App.css';
+import useCount from "./counter";
 
 function App() {
-  const [count,increment, decrease] = useState(0)
 
-  const onClick = () => {
-    increment,
-    decrease
-  }
+  const { count, increment, decrease } = useCount(0);
+
   return (
     <>
       <h1>Count: {count}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrease}>Decrement</button>
+      <button onClick={increment}>Incrementar</button>
+      <button onClick={decrease}>Disminuir</button>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
