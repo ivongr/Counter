@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.success {background-image:
+  linear-gradient(to right, #28a745, 
+  #56c150b3);} 
+
+  .danger {background-image:
+    linear-gradient(to right, #f62f2f, 
+    #f56363b3);} 

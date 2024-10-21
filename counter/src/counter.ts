@@ -4,9 +4,8 @@ export default function useCount(initialCount = 0) {
   
     const [count,setCount] = useState(initialCount);
     
-    const  handleClick = (value:string) => {
-    setCount(parseInt(value));
-
+    const  handleClick = (value) => {
+    setCount(value);
     }
    
     const Increment = () => {
