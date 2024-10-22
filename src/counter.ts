@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function useCount(initialCount = 0) {
   
     const [count,setCount] = useState(initialCount);
     
-    const  handleClick = (value) => {
+    const  handleClick = (value:number) => {
     setCount(value);
     }
    
