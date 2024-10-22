@@ -6,6 +6,8 @@
 import type {Config} from 'jest';
 
 const config: Config = {
+
+  
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -191,7 +193,11 @@ const config: Config = {
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
   // watchPathIgnorePatterns: [],
-
+  
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest', // Transforma archivos JS y JSX con babel-jest
+  },
+  
   // Whether to use watchman for file crawling
   // watchman: true,
 };
