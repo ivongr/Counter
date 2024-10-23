@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom'; 
+import '@testing-library/user-event'; 
 import App from './App';
 
 
@@ -34,14 +34,14 @@ describe("App Componente", () => {
     });
 
     test("debe de comenzar el contador con el valor inicial establecido por el usuario e incrementar el contador", () => {
-        fireEvent.change(numberInput, { target: { value: "10" } });
+        userEvent.type(numberInput, { target: { value: "10" } });
         fireEvent.click(incrementButton);
         const counterUpdate = screen.getByRole("count-indicator");
         expect(counterUpdate).toHaveTextContent("11");
     });
 
     test("debe de comenzar el contador con el valor inicial establecido por el usuario e disminuir el contador", () => {
-        fireEvent.change(numberInput, { target: { value: "11" } });
+        userEvent.type(numberInput, { target: { value: "11" } });
         fireEvent.click(decreaseButton);
         const counterUpdate = screen.getByRole("count-indicator");
         expect(counterUpdate).toHaveTextContent("10");
