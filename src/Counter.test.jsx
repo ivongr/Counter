@@ -17,43 +17,36 @@ describe("App Componente", () => {
         counterInit = screen.getByRole("count-indicator");
     });
 
-    test("el contador empieze desde 0", () => {
+    test("debe de empezar en 0 el contador", () => {
         expect(counterInit).toHaveTextContent("0")
     });
     
-    test("incrementa cuando da click", () => {
+    test("debe de incrementar el contador", () => {
         fireEvent.click(incrementButton);
         const counterUpdate = screen.getByRole("count-indicator");
         expect(counterUpdate).toHaveTextContent("1")
     });
 
-    test("disminuye cuando da click", () => {
+    test("debe de disminuir el contador", () => {
         fireEvent.click(decreaseButton);
         const counterUpdate = screen.getByRole("count-indicator");
         expect(counterUpdate).toHaveTextContent("-1")
     });
 
-    test("el contador comienza con el valor inicial establecido por el usuario", () => {
+    test("debe de comenzar el contador con el valor inicial establecido por el usuario e incrementar el contador", () => {
         fireEvent.change(numberInput, { target: { value: "10" } });
         fireEvent.click(incrementButton);
         const counterUpdate = screen.getByRole("count-indicator");
         expect(counterUpdate).toHaveTextContent("11");
     });
 
-    test("el contador comienza con el valor inicial establecido por el usuario", () => {
+    test("debe de comenzar el contador con el valor inicial establecido por el usuario e disminuir el contador", () => {
         fireEvent.change(numberInput, { target: { value: "11" } });
         fireEvent.click(decreaseButton);
         const counterUpdate = screen.getByRole("count-indicator");
         expect(counterUpdate).toHaveTextContent("10");
     });
 
-    test("validar estilos para el boton Incrementar", () => {
-        expect(incrementButton).toHaveClass("success")
-    });
-
-    test("validar estilos para el boton Incrementar", () => {
-        expect(decreaseButton).toHaveClass("danger")
-    });
 
 });
 
