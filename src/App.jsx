@@ -3,7 +3,7 @@ import useCount from './counter';
 
 
 function App() {
-  const { count, Increment, Decrease, handleClick } = useCount(0);
+  const { count, increment, decrease, handleClick } = useCount(0);
   const handleValueParse = (e) => {
     const valueNum = parseInt(e.target.value);
     handleClick(valueNum)
@@ -15,8 +15,8 @@ function App() {
       <input type="number" id="inputNumber" value={parseInt(count)}
         onChange={handleValueParse }></input>
       <h1 role="count-indicator"> {count}</h1>
-      <button className="success" onClick={Increment}>Incrementar</button>
-      <button className="danger" onClick={Decrease} >Disminuir</button>
+      <button className="success" onClick={increment}>Incrementar</button>
+      <button className="danger" onClick={decrease} >Disminuir</button>
     </>
   )
 }

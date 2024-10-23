@@ -8,8 +8,9 @@ describe("Counter Hook", () => {
    
     test("debe incrementar el contador", () => {
         const { result } = renderHook(() => useCount(initialCount));
+
         act(() => {
-            result.current.Increment();
+            result.current.increment();
         });
         expect(result.current.count).toBe(1);
     });
@@ -17,7 +18,7 @@ describe("Counter Hook", () => {
     test("debe de disminuir el contador", () => {
         const { result } = renderHook(() => useCount(initialCount));
         act(() => {
-            result.current.Decrease();
+            result.current.decrease();
         });
         expect(result.current.count).toBe(-1);
     });

@@ -8,19 +8,19 @@ export default function useCount(initialCount = 0) {
     setCount(value);
     }
    
-    const Increment = () => {
+    const increment = () => {
       setCount(count => count += 1)
     };
   
-    const Decrease = () => {
+    const decrease = () => {
       setCount(count => count -= 1)
     }
   
   
     return {
       count,
-      Increment,
-      Decrease,
+      increment,
+      decrease,
       handleClick
     };
 }
