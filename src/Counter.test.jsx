@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom'; // Asegúrate de importar esto
+import '@testing-library/jest-dom'; 
 import App from './App';
-import { expect } from 'vitest';
+
 
 describe("App Componente", () => {
     let numberInput;
@@ -18,12 +18,10 @@ describe("App Componente", () => {
     });
 
     test("el contador empieze desde 0", () => {
-        //let conter = parseInt(counterInit)
         expect(counterInit).toHaveTextContent("0")
-    })
+    });
+    
     test("incrementa cuando da click", () => {
-        // fireEvent.change(numberInput, { target: { value: 5 } })
-        //expect(numberInput).toHaveBeenCalledWith(5)
         fireEvent.click(incrementButton);
         const counterUpdate = screen.getByRole("count-indicator");
         expect(counterUpdate).toHaveTextContent("1")
@@ -36,22 +34,26 @@ describe("App Componente", () => {
     });
 
     test("el contador comienza con el valor inicial establecido por el usuario", () => {
-        fireEvent.change(numberInput, { target: { value: '10' } });
+        fireEvent.change(numberInput, { target: { value: "10" } });
         fireEvent.click(incrementButton);
         const counterUpdate = screen.getByRole("count-indicator");
         expect(counterUpdate).toHaveTextContent("11");
     });
 
     test("el contador comienza con el valor inicial establecido por el usuario", () => {
-        fireEvent.change(numberInput, { target: { value: '10' } });
+        fireEvent.change(numberInput, { target: { value: "11" } });
         fireEvent.click(decreaseButton);
         const counterUpdate = screen.getByRole("count-indicator");
-        expect(counterUpdate).toHaveTextContent("9");
+        expect(counterUpdate).toHaveTextContent("10");
     });
 
-    test("validar estilos", () => {
+    test("validar estilos para el boton Incrementar", () => {
         expect(incrementButton).toHaveClass("success")
-    })
+    });
+
+    test("validar estilos para el boton Incrementar", () => {
+        expect(decreaseButton).toHaveClass("danger")
+    });
 
 });
 
