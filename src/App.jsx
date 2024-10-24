@@ -14,7 +14,7 @@ function App() {
     <label htmlFor="inputNumber"> Ingresa un número</label>
       <input type="number" id="inputNumber" value={parseInt(count)}
         onChange={handleValueParse }></input>
-      <h1 role="count-indicator"> {count}</h1>
+      <h1 role="count-indicator">{count}</h1>
       <button className="success" onClick={increment}>Incrementar</button>
       <button className="danger" onClick={decrease} >Disminuir</button>
     </>
