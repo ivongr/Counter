@@ -24,34 +24,34 @@ describe("App Componente", () => {
 
     test("debe de empezar en 0 el contador", () => {
         const { counterInit } = setup();
-        expect(counterInit).toHaveTextContent("0")
+        expect(counterInit.textContent).toBe("0")
     });
 
     test("debe de incrementar el contador", () => {
         const { incrementButton, counterInit, user } = setup();
          user.click(incrementButton);
         //const counterUpdate = screen.getByRole("count-indicator");
-        expect(counterInit).toHaveTextContent("1")
+        expect(counterInit.textContent).toBe("1")
     });
 
     test("debe de disminuir el contador", () => {
         const { decreaseButton, counterInit, user } = setup();
         user.click(decreaseButton);
-        expect(counterInit).toHaveTextContent("-1")
+        expect(counterInit.textContent).toBe("-1")
     });
 
     test("debe de comenzar el contador con el valor inicial establecido por el usuario e incrementar el contador", () => {
         const { numberInput, incrementButton, counterInit, user } = setup();
         user.type(numberInput, "10");
         user.click(incrementButton);
-        expect(counterInit).toHaveTextContent("11");
+        expect(counterInit.textContent).toBe("11");
     });
 
     test("debe de comenzar el contador con el valor inicial establecido por el usuario e disminuir el contador", () => {
         const { numberInput, decreaseButton, counterInit, user } = setup();
         user.type(numberInput, "11");
         user.click(decreaseButton);
-        expect(counterInit).toHaveTextContent("10");
+        expect(counterInit.textContent).toBe("10");
     });
 
 
