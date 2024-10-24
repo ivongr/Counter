@@ -27,31 +27,31 @@ describe("App Componente", () => {
         expect(counterInit.textContent).toBe("0")
     });
 
-    test("debe de incrementar el contador", () => {
+    test("debe de incrementar el contador", async () => {
         const { incrementButton, counterInit, user } = setup();
-         user.click(incrementButton);
+        await user.click(incrementButton);
         //const counterUpdate = screen.getByRole("count-indicator");
         expect(counterInit.textContent).toBe("1")
     });
 
-    test("debe de disminuir el contador", () => {
+    test("debe de disminuir el contador", async () => {
         const { decreaseButton, counterInit, user } = setup();
-        user.click(decreaseButton);
+       await user.click(decreaseButton);
         expect(counterInit.textContent).toBe("-1")
     });
 
-    test("debe de comenzar el contador con el valor inicial establecido por el usuario e incrementar el contador", () => {
+    test("debe de comenzar el contador con el valor inicial establecido por el usuario e incrementar el contador", async () => {
         const { numberInput, incrementButton, counterInit, user } = setup();
         user.type(numberInput, "10");
-        user.click(incrementButton);
+       await user.click(incrementButton);
         expect(counterInit.textContent).toBe("11");
     });
 
-    test("debe de comenzar el contador con el valor inicial establecido por el usuario e disminuir el contador", () => {
+    test("debe de comenzar el contador con el valor inicial establecido por el usuario e disminuir el contador", async () => {
         const { numberInput, decreaseButton, counterInit, user } = setup();
         user.type(numberInput, "11");
-        user.click(decreaseButton);
-        expect(counterInit.textContent).toBe("10");
+       await user.click(decreaseButton);
+        expect(counterInit.textContent.trim()).toBe("10");
     });
 
 
